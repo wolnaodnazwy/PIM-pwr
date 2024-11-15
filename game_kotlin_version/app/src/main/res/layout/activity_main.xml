@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <!-- AppBar with Icons and Title -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <!-- Left Icon Button -->
+            <ImageButton
+                android:id="@+id/btn_settings"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/circle_primary_color"
+                android:contentDescription="@string/settings"
+                android:src="@drawable/outline_settings_24"
+                app:tint="@android:color/white"
+                android:layout_marginEnd="8dp" />
+
+            <!-- Title Text -->
+            <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/zgadnij_liczb"
+                android:textAppearance="?attr/textAppearanceTitleLarge"
+                android:background="@drawable/text_container_background"
+                android:padding="7dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:textColor="@color/colorPrimary"
+                android:layout_weight="1"
+                android:gravity="center" />
+
+            <!-- Right Icon Button -->
+            <ImageButton
+                android:id="@+id/btn_flag"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/circle_primary_color"
+                android:contentDescription="@string/surrender"
+                android:src="@drawable/baseline_outlined_flag_24"
+                app:tint="@android:color/white"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="16dp"/>
+        </LinearLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:id="@+id/number_display"
+        android:layout_width="373dp"
+        android:layout_height="204dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/number_container_background"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <ImageButton
+            android:id="@+id/btn_increase"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/increase"
+            android:scaleType="fitCenter"
+            android:src="@drawable/baseline_arrow_drop_up_24" />
+
+        <TextView
+            android:id="@+id/tv_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="11"
+            android:textAppearance="?attr/textAppearanceDisplayLarge"
+            android:textColor="@color/grey" />
+
+        <ImageButton
+            android:id="@+id/btn_decrease"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/decrease"
+            android:scaleType="fitCenter"
+            android:src="@drawable/baseline_arrow_drop_down_24" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/attempts_number"
+        android:layout_width="374dp"
+        android:layout_height="42dp"
+        android:background="@drawable/text_container_background"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/number_display">
+    <TextView
+        android:id="@+id/tv_attempts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Liczba pozostałych prób: 10"
+        android:layout_gravity="center"
+        android:textAppearance="?attr/textAppearanceTitleMedium"
+        android:textColor="@color/colorPrimary"
+        />
+    </FrameLayout>
+
+    <!-- Number Pad Layout -->
+    <GridLayout
+        android:id="@+id/number_pad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="3"
+        android:rowCount="4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintTop_toBottomOf="@id/attempts_number">
+
+        <!-- Number Buttons -->
+        <Button
+            android:id="@+id/btn_1"
+            style="@style/NumberButton"
+            android:text="@string/_1"
+            android:layout_margin="8dp"/>
+
+        <Button
+            android:id="@+id/btn_2"
+            style="@style/NumberButton"
+            android:text="@string/_2"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="33dp"
+            android:layout_marginEnd="33dp"/>
+
+        <Button
+            android:id="@+id/btn_3"
+            style="@style/NumberButton"
+            android:text="@string/_3"
+            android:layout_margin="8dp"/>
+
+        <Button
+            android:id="@+id/btn_4"
+            style="@style/NumberButton"
+            android:text="@string/_4"
+            android:layout_margin="8dp"/>
+
+        <Button
+            android:id="@+id/btn_5"
+            style="@style/NumberButton"
+            android:text="@string/_5"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="33dp"
+            android:layout_marginEnd="33dp"/>
+
+        <Button
+            android:id="@+id/btn_6"
+            style="@style/NumberButton"
+            android:text="@string/_6"
+            android:layout_margin="8dp"/>
+
+        <Button
+            android:id="@+id/btn_7"
+            style="@style/NumberButton"
+            android:text="@string/_7"
+            android:layout_margin="8dp"/>
+
+        <Button
+            android:id="@+id/btn_8"
+            style="@style/NumberButton"
+            android:text="@string/_8"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="33dp"
+            android:layout_marginEnd="33dp"/>
+
+        <Button
+            android:id="@+id/btn_9"
+            style="@style/NumberButton"
+            android:text="@string/_9"
+            android:layout_margin="8dp"/>
+
+        <ImageButton
+            android:id="@+id/btn_backspace"
+            android:contentDescription="@string/backspace"
+            android:src="@drawable/baseline_arrow_back_24"
+            android:scaleType="fitCenter"
+            android:layout_margin="8dp"
+            android:padding="28dp"
+            android:background="@drawable/icon_button_container_background"
+            style="@style/IconKeyButton"/>
+
+        <Button
+            android:id="@+id/btn_0"
+            style="@style/NumberButton"
+            android:text="@string/_0"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="33dp"
+            android:layout_marginEnd="33dp"/>
+
+        <ImageButton
+            android:id="@+id/btn_confirm"
+            android:contentDescription="@string/confirm"
+            android:src="@drawable/baseline_check_24"
+            android:scaleType="fitCenter"
+            android:layout_margin="8dp"
+            android:padding="28dp"
+            android:background="@drawable/icon_button_container_background"
+            style="@style/IconKeyButton"/>
+    </GridLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

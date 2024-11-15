@@ -1,0 +1,58 @@
+<resources>
+    <!-- Other existing styles -->
+
+    <!-- Custom Style for Number Buttons with MD3 Display Large -->
+    <style name="NumberButton" parent="TextAppearance.Material3.DisplayLarge">
+        <item name="android:layout_width">92dp</item>
+        <item name="android:layout_height">92dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:backgroundTint">#4F378A</item>
+        <item name="android:background">@drawable/number_button_container_background</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="IconKeyButton">
+        <item name="android:layout_width">92dp</item>
+        <item name="android:layout_height">92dp</item>
+    </style>
+
+    <!-- Niestandardowy styl AlertDialog -->
+    <style name="CustomAlertDialogTheme" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <!-- Kolor tła dialogu -->
+        <item name="android:background">@drawable/dialog_background</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+
+
+        <!-- Styl tytułu -->
+        <item name="titleTextAppearance">@style/CustomDialogTitle</item>
+
+        <!-- Styl wiadomości -->
+        <item name="android:textAppearance">@style/CustomDialogMessage</item>
+
+        <!-- Styl przycisków -->
+        <item name="buttonStyle">@style/CustomDialogButton</item>
+
+    </style>
+
+
+
+    <!-- Styl tytułu dialogu -->
+    <style name="CustomDialogTitle" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="android:textColor">#1D1B20</item> <!-- Kolor tekstu tytułu -->
+    </style>
+
+    <!-- Styl wiadomości dialogu -->
+    <style name="CustomDialogMessage" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textColor">#49454F</item> <!-- Kolor tekstu wiadomości -->
+    </style>
+
+    <!-- Styl przycisków dialogu -->
+    <style name="CustomDialogButton" parent="Widget.Material3.Button.TextButton">
+        <item name="android:textAppearance">@style/CustomDialogButtonText</item>
+    </style>
+
+    <!-- Styl tekstu przycisków dialogu -->
+    <style name="CustomDialogButtonText" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:textColor">#65558F</item> <!-- Kolor tekstu przycisków -->
+    </style>
+</resources>
