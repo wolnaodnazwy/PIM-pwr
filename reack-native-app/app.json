@@ -1,0 +1,36 @@
+{
+  "expo": {
+    "name": "reack-native",
+    "slug": "reack-native",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./src/assets/icons/icon.png",
+    "userInterfaceStyle": "light",
+    "plugins": [
+      "expo-asset"
+    ],
+    "splash": {
+      "image": "./src/assets/icons/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./src/assets/icons/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.justyna1602.reacknative"
+    },
+    "web": {
+      "favicon": "./src/assets/icons/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "879e8b9d-a9bd-42eb-9252-55a43f19e921"
+      }
+    }
+  }
+}
