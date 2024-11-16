@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#80000000">
+
+    <LinearLayout
+        android:layout_width="340dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:layout_marginEnd="71dp"
+        android:background="@drawable/background_shape"
+        android:bottomRightRadius="16dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:topRightRadius="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <!-- Tytuł panelu -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/settings_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:text="Ustawienia"
+                android:textAppearance="?attr/textAppearanceHeadlineMedium"
+                android:textColor="#625B71"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/text_container_background"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Wybór zakresu"
+                        android:textAppearance="?attr/textAppearanceTitleMedium"
+                        android:textColor="#4F378A" />
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Maksymalna liczba to 10000000"
+                        android:textAppearance="?attr/textAppearanceBodySmall"
+                        android:textColor="#4F378A" />
+                </LinearLayout>
+            </ScrollView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingVertical="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="50dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/label_range_from"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="Od:"
+                        android:textColor="#625B71" />
+
+                    <EditText
+                        android:id="@+id/editTextText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginBottom="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/edittext_background"
+                        android:inputType="number"
+                        android:padding="10dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="50dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/label_range_to"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="Do:"
+                        android:textColor="#625B71" />
+
+                    <EditText
+                        android:id="@+id/editTextText2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginBottom="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/edittext_background"
+                        android:inputType="number"
+                        android:padding="10dp" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/text_container_background"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Poziom Trudności"
+                        android:textAppearance="?attr/textAppearanceTitleMedium"
+                        android:textColor="#4F378A" />
+                </LinearLayout>
+            </ScrollView>
+
+            <RadioGroup
+                android:id="@+id/radio_group_difficulty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingHorizontal="30dp"
+                android:paddingVertical="10dp"
+                android:rotationY="0">
+
+                <RadioButton
+                    android:id="@+id/radio_easy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="Łatwy\nLiczba prób: 10"
+                    android:textColor="#625B71" />
+
+                <RadioButton
+                    android:id="@+id/radio_medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Średni\nLiczba prób: 6"
+                    android:textColor="#625B71" />
+
+                <RadioButton
+                    android:id="@+id/radio_hard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Trudny\nLiczba prób: 2"
+                    android:textColor="#625B71" />
+
+            </RadioGroup>
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/btn_save_settings"
+            style="@style/Widget.Material3.ExtendedFloatingActionButton.Secondary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/dialog_background"
+            android:text="Zapisz ustawienia"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="#4F378A" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

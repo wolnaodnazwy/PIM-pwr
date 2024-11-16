@@ -2,11 +2,16 @@ package com.example.game
 
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.view.MotionEvent
+import android.view.View
 import android.view.WindowManager
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.RadioButton
+import android.widget.RadioGroup
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -20,6 +25,9 @@ class MainActivity : AppCompatActivity() {
     private var currentInput = "0"
     private var targetNumber = generateRandomNumber()
     private var attemptsLeft = 10
+    private var attemptsMax = 10
+    private var numberRangeStart = 0
+    private var numberRangeEnd = 100
 
     private lateinit var tvNumber: TextView
     private lateinit var tvAttempts: TextView
@@ -31,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         tvNumber = findViewById(R.id.tv_number)
-        tvAttempts = findViewById(R.id.tv_attempts)
+        tvAttempts = findViewById(R.id.tv_attepmt)
         btnIncrease = findViewById(R.id.btn_increase)
         btnDecrease = findViewById(R.id.btn_decrease)
         btnConfirm = findViewById(R.id.btn_confirm)
@@ -65,9 +73,81 @@ class MainActivity : AppCompatActivity() {
         findViewById<ImageButton>(R.id.btn_flag).setOnClickListener {
             showSurrenderDialog()
         }
+
+        findViewById<ImageButton>(R.id.btn_settings).setOnClickListener {
+            showSettings()
+        }
+
+
+        findViewById<Button>(R.id.btn_save_settings).setOnClickListener {
+            saveSettings()
+        }
+
+        // Załaduj zapisane ustawienia
+        val sharedPreferences = getSharedPreferences("game_settings", MODE_PRIVATE)
+
+        // Załaduj zakres liczb
+        numberRangeStart = sharedPreferences.getInt("range_start", 0)
+        numberRangeEnd = sharedPreferences.getInt("range_end", 100)
+
+        // Załaduj poziom trudności
+        val difficultyText = sharedPreferences.getString("difficulty", "Łatwy")
+
+        // Ustaw odpowiednią opcję w RadioGroup
+        val difficultyRadioGroup = findViewById<RadioGroup>(R.id.radio_group_difficulty)
+        when (difficultyText) {
+            "Łatwy" -> difficultyRadioGroup.check(R.id.radio_easy)
+            "Średni" -> difficultyRadioGroup.check(R.id.radio_medium)
+            "Trudny" -> difficultyRadioGroup.check(R.id.radio_hard)
+        }
+
+        resetGame()
     }
 
-    private fun generateRandomNumber(start: Int = 0, end: Int = 100): Int {
+    private fun showSettings() {
+        val settingsPanel = findViewById<View>(R.id.settings_panel)
+        settingsPanel.visibility = View.VISIBLE
+    }
+
+    private fun saveSettings() {
+        val settingsPanel = findViewById<View>(R.id.settings_panel)
+        settingsPanel.visibility = View.GONE
+
+        // Pobierz wartości z EditText (zakres liczb)
+        val newRangeStart = findViewById<EditText>(R.id.editTextText).text.toString().toIntOrNull() ?: 0
+        val newRangeEnd = findViewById<EditText>(R.id.editTextText2).text.toString().toIntOrNull() ?: 100
+
+        // Sprawdź, czy zakres się zmienił
+        val isRangeChanged = numberRangeStart != newRangeStart || numberRangeEnd != newRangeEnd
+        numberRangeStart = newRangeStart
+        numberRangeEnd = newRangeEnd
+
+        // Pobierz wybrany poziom trudności
+        val difficultyRadioGroup = findViewById<RadioGroup>(R.id.radio_group_difficulty)
+        val selectedDifficultyId = difficultyRadioGroup.checkedRadioButtonId
+        val selectedDifficultyRadioButton = findViewById<RadioButton>(selectedDifficultyId)
+
+        // Sprawdź, czy poziom trudności się zmienił
+        val newAttemptsMax = when (selectedDifficultyRadioButton.id) {
+            R.id.radio_easy -> 10
+            R.id.radio_medium -> 6
+            R.id.radio_hard -> 2
+            else -> attemptsMax
+        }
+
+        val isDifficultyChanged = attemptsMax != newAttemptsMax
+        attemptsMax = newAttemptsMax
+
+        // Zaktualizuj zmienną attemptsLeft (poziom trudności)
+        attemptsLeft = attemptsMax
+
+        // Jeśli którykolwiek z warunków się zmienił, zresetuj grę
+        if (isRangeChanged || isDifficultyChanged) {
+            resetGame()
+        }
+    }
+
+    private fun generateRandomNumber(start: Int = numberRangeStart, end: Int = numberRangeEnd): Int {
         return (start..end).random()
     }
 
@@ -125,11 +205,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun resetGame() {
         currentInput = "0"
-        attemptsLeft = 10
+        attemptsLeft = attemptsMax
         targetNumber = generateRandomNumber()
         btnIncrease.setColorFilter(ContextCompat.getColor(this, R.color.pink))
         btnDecrease.setColorFilter(ContextCompat.getColor(this, R.color.pink))
-        updateDisplayNumber()
+            updateDisplayNumber()
         updateAttempts()
     }
 
