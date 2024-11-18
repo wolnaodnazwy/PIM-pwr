@@ -8,13 +8,13 @@
     android:background="#80000000">
 
     <LinearLayout
-        android:layout_width="340dp"
+        android:layout_width="360dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:layout_marginEnd="71dp"
+        android:layout_marginEnd="52dp"
         android:background="@drawable/background_shape"
         android:bottomRightRadius="16dp"
-        android:gravity="center"
+        android:gravity="center_horizontal"
         android:orientation="vertical"
         android:padding="16dp"
         android:topRightRadius="16dp"
@@ -34,11 +34,12 @@
                 android:id="@+id/settings_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
                 android:text="Ustawienia"
-                android:textAppearance="?attr/textAppearanceHeadlineMedium"
+                android:textAppearance="?attr/textAppearanceHeadlineLarge"
                 android:textColor="#625B71"
-                android:textSize="20sp"
+                android:textSize="24sp"
                 android:textStyle="bold" />
 
             <ScrollView
@@ -51,7 +52,7 @@
                     android:layout_margin="10dp"
                     android:background="@drawable/text_container_background"
                     android:orientation="vertical"
-                    android:padding="5dp">
+                    android:padding="10dp">
 
                     <TextView
                         android:id="@+id/textView2"
@@ -90,7 +91,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
-                        android:text="Od:"
+                        android:text="Od"
                         android:textColor="#625B71" />
 
                     <EditText
@@ -117,7 +118,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
-                        android:text="Do:"
+                        android:text="Do"
                         android:textColor="#625B71" />
 
                     <EditText
@@ -144,7 +145,7 @@
                     android:layout_margin="10dp"
                     android:background="@drawable/text_container_background"
                     android:orientation="vertical"
-                    android:padding="10dp">
+                    android:padding="15dp">
 
                     <TextView
                         android:id="@+id/textView"
@@ -161,8 +162,9 @@
                 android:id="@+id/radio_group_difficulty"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
                 android:layout_marginBottom="30dp"
-                android:gravity="center"
+                android:gravity="center|start"
                 android:orientation="vertical"
                 android:paddingHorizontal="30dp"
                 android:paddingVertical="10dp"
@@ -172,6 +174,7 @@
                     android:id="@+id/radio_easy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
                     android:checked="true"
                     android:text="Łatwy\nLiczba prób: 10"
                     android:textColor="#625B71" />
@@ -180,6 +183,7 @@
                     android:id="@+id/radio_medium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
                     android:text="Średni\nLiczba prób: 6"
                     android:textColor="#625B71" />
 
@@ -187,6 +191,7 @@
                     android:id="@+id/radio_hard"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
                     android:text="Trudny\nLiczba prób: 2"
                     android:textColor="#625B71" />
 
